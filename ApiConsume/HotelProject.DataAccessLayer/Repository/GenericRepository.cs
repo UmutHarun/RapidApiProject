@@ -11,11 +11,10 @@ namespace HotelProject.DataAccessLayer.Repository
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
         private readonly Context _context;
-        private Context context;
 
         public GenericRepository(Context context)
         {
-            this.context = context;
+            _context = context;
         }
 
         public void Delete(T entity)
