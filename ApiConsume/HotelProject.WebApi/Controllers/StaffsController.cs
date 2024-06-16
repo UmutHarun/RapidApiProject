@@ -30,10 +30,11 @@ namespace HotelProject.WebApi.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public IActionResult DeleteStaff(Staff staff)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteStaff(int id)
         {
-            _staffService.Delete(staff);
+            var values = _staffService.GetById(id);
+            _staffService.Delete(values);
             return Ok();
         }
 
