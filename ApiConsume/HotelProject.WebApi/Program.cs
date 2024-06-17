@@ -24,9 +24,11 @@ builder.Services.AddScoped<IRoomDal, EfRoomDal>();
 builder.Services.AddScoped<IStaffService,StaffManager>();
 builder.Services.AddScoped<IStaffDal,EfStaffDal>();
 
-
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
+builder.Services.AddScoped<IServiceService, ServiceManager>();
+builder.Services.AddScoped<IServiceDal,EfServiceDal>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
