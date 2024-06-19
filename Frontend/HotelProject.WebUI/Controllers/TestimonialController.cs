@@ -1,4 +1,5 @@
-﻿using HotelProject.WebUI.Models.Staff;
+﻿using HotelProject.WebUI.Dtos.Testimonial;
+using HotelProject.WebUI.Models.Staff;
 using HotelProject.WebUI.Models.Testimonial;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -22,7 +23,7 @@ namespace HotelProject.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<TestimonialViewModel>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultTestimonialDto>>(jsonData);
                 return View(values);
             }
             return View();
@@ -35,7 +36,7 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTestimonial(AddTestimonialViewModel testimonial)
+        public async Task<IActionResult> AddTestimonial(AddTestimonialDto testimonial)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(testimonial);
@@ -67,14 +68,14 @@ namespace HotelProject.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateStaffViewModel>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateTestimonialDto>(jsonData);
                 return View(values);
             }
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialViewModel model)
+        public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialDto model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);

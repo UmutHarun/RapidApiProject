@@ -30,6 +30,15 @@ builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<IServiceService, ServiceManager>();
 builder.Services.AddScoped<IServiceDal,EfServiceDal>();
 
+builder.Services.AddScoped<IBookingService,BookingManager>();
+builder.Services.AddScoped<IBookingDal, EfBookingDal>();
+
+builder.Services.AddScoped<IAboutUsService,AboutUsManager>();
+builder.Services.AddScoped<IAboutUsDal, EfAboutUsDal>();
+
+builder.Services.AddScoped<ISubscribeService,SubscribeManager>();
+builder.Services.AddScoped<ISubscribeDal,EfSubscribeDal>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
